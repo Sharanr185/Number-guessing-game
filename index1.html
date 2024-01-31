@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style1.css">
+</head>
+<body>
+    <div class="mydiv">
+        <h1>Number Guessing Game</h1>
+        <span><hr></span>
+        <p id="p1">We have a selected a random number between 1 and 100.We'll tell you if your guess was too high or too low.</p>
+        <label>Enter the value : <input id="num" class="field" type="text"></label><br><button onclick="MyFunction()">Submit guess</button>
+        <p id="guess">Previous guess: </p>
+        <p id="alert" style="font-size: 30px;"></p>
+        <p id="result"></p>
+    </div>
+</body>
+
+<script>
+    let count=0;
+    function random()
+    {
+            low=0;
+            high=100;
+            var number=(Math.floor(Math.random()*(101)));
+            if(number==0){
+                number=1;
+            }
+            console.log (number);
+            return number;
+    }
+    num=random();
+      
+
+    function MyFunction(){
+
+        if(count>10){
+            alert("Chances are over...better luck next time!");
+        }
+        else{
+            count=count+1;
+            var val=document.getElementById("num").value;
+            document.getElementById("guess").innerHTML+=val+" ";
+            if(val>num){
+                document.getElementById("alert").innerHTML="Wrong";
+                document.getElementById("alert").style.color="red";
+                document.getElementById("result").innerHTML="Guessed value is greater than the answer";
+            }
+            else if(val<num){
+                document.getElementById("alert").innerHTML="Wrong";
+                document.getElementById("alert").style.color="red";
+                document.getElementById("result").innerHTML="Guessed value is lesser than the answer";
+
+            }
+            else{
+                document.getElementById("alert").innerHTML="Correct";
+                document.getElementById("alert").style.color="green";
+                document.getElementById("result").innerHTML="Correct value is"+" "+num;
+                document.getElementById("num").disabled=true;
+            }
+        }
+    }
+</script>
