@@ -1,2 +1,2 @@
 # Number-guessing-game
-Simple number guessing game using HTML, CSS and JavaScript
+This github repository showcases a simple number guessing game developed using HTML, CSS and JavaScript
